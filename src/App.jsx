@@ -1,15 +1,13 @@
 /* import { AppRouter } from "./router/AppRouter" */
-import { Typography } from "@mui/material"
+// TODO: CONFIGURAR ROUTES
 import { AppTheme } from "./theme"
-
-
-
+import { LoginPage } from "./pages/LoginPage"
 
 export const App = () => {
   return (
     <AppTheme>
        {/*  <AppRouter/> */}
-      <Typography> hola </Typography> 
+       <LoginPage/>
     </AppTheme>
   )
 }
