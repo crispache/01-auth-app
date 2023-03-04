@@ -1,9 +1,13 @@
+import { useTheme } from "@emotion/react";
 import { Google } from "@mui/icons-material";
 import { Box, Button, Grid, Link, TextField, Typography } from "@mui/material";
 import { useState } from "react";
 
+
+
 export const LoginPage = () => {
   const [showPassword, setShowPassword] = useState(false);
+  const theme = useTheme()
 
   return (
     <>
@@ -17,6 +21,7 @@ export const LoginPage = () => {
         sx={{
           marginTop: 0,
           height: "100vh",
+          backgroundColor: "#eceff1",
         }}
       >
         <Box
@@ -28,14 +33,12 @@ export const LoginPage = () => {
             border: 1,
             borderColor: "gainsboro",
             borderRadius: 2,
+            backgroundColor: "white",
+            boxShadow: "0px 1px 25px #90a4ae",
           }}
         >
-          <Typography variant="h4" textAlign="center" sx={{mt:2}}>
+          <Typography variant="h4" textAlign="center" sx={{ mt: 2 }}>
             Login
-          </Typography>
-
-          <Typography textAlign="center" sx={{mt:2}} color="grey">
-            Amet irure do minim non irure cillum consectetur quis incididunt sunt sint sint.
           </Typography>
 
           <form>
@@ -43,7 +46,6 @@ export const LoginPage = () => {
               container
               sx={{
                 marginTop: 3,
-                backgroundColor: "white",
                 padding: 2,
               }}
             >
@@ -65,25 +67,72 @@ export const LoginPage = () => {
                 ></TextField>
               </Grid>
 
-              <Grid item xs={12} sx={{ mt: 5 }} display="flex" justifyContent="end">
-                <Link href="#"> ¿Te has olvidado de la contraseña? </Link>
+              <Grid
+                item
+                xs={12}
+                sx={{ mt: 5 }}
+                display="flex"
+                justifyContent="end"
+              >
+                <Link href="#" sx={{
+                       fontFamily: "Open Sans",
+                       fontWeight: 600,
+                       color: "black",
+                       fontSize: '14px'
+                }}> ¿Te has olvidado de la contraseña? </Link>
               </Grid>
 
               <Grid item xs={12} sx={{ mt: 5 }}>
-                <Button variant="contained" fullWidth sx={{ height: 55 }} color="secondary"> Login </Button>
+                <Button
+                  variant="contained"
+                  fullWidth
+                  sx={{
+                    height: 55,
+                    fontFamily: "Open Sans",
+                    fontWeight: 500,
+                    fontSize: "15px",
+                    ":hover":{ background: theme.palette.secondary.light },
+                  }}
+                  color="secondary"
+                >
+                  {" "}
+                  Iniciar sesión{" "}
+                </Button>
               </Grid>
 
               <Grid item xs={12} sx={{ mt: 2 }}>
-                <Button variant="outlined" startIcon={ <Google/> } fullWidth sx={{ height: 55 }}> Sign in with Google </Button>
+                <Button
+                  variant="outlined"
+                  startIcon={<Google />}
+                  fullWidth
+                  sx={{
+                    height: 55,
+                    fontFamily: "Open Sans",
+                    fontWeight: 500,
+                    fontSize: "15px",
+                  }}
+                >
+                  {" "}
+                  Sign in with Google{" "}
+                </Button>
               </Grid>
-
             </Grid>
           </form>
 
-          <Box sx={{mt:5}} display="flex" justifyContent="center">
-                <Typography> ¿Aún no tienes una cuenta? <Link href="#">Registrarse </Link> </Typography>
+          <Box sx={{ mt: 5 }} display="flex" justifyContent="center">
+            <Typography sx={{
+                    fontFamily: "Open Sans",
+                    fontWeight: 500,
+                    color: "black"
+                }}>
+        
+              ¿Aún no tienes una cuenta? <Link href="#" sx={{
+                    fontFamily: "Open Sans",
+                    fontWeight: 600,
+                    color: "black"
+                }}> <b>Registrarse</b>  </Link>
+            </Typography>
           </Box>
-
         </Box>
       </Grid>
     </>
