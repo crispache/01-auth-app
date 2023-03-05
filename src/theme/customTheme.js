@@ -3,7 +3,7 @@ import { createTheme } from "@mui/material";
 
 
 
-export const purpleTheme = createTheme({
+export const customTheme = createTheme({
     palette: {
         mode: 'light', // TODO: Más adelante configurar el modo dark
         primary: {
