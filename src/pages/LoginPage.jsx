@@ -105,8 +105,8 @@ export const LoginPage = () => {
                     fontSize: "14px",
                   }}
                 >
-                  {" "}
-                  ¿Te has olvidado de la contraseña?{" "}
+                  
+                  ¿Te has olvidado de la contraseña?
                 </Link>
               </Grid>
 
@@ -123,8 +123,8 @@ export const LoginPage = () => {
                   }}
                   color="secondary"
                 >
-                  {" "}
-                  Iniciar sesión{" "}
+                  
+                  Iniciar sesión
                 </Button>
               </Grid>
 
@@ -140,8 +140,8 @@ export const LoginPage = () => {
                     fontSize: "15px",
                   }}
                 >
-                  {" "}
-                  Sign in with Google{" "}
+                  
+                  Sign in with Google
                 </Button>
               </Grid>
             </Grid>
@@ -155,7 +155,7 @@ export const LoginPage = () => {
                 color: "black",
               }}
             >
-              ¿Aún no tienes una cuenta?{" "}
+              ¿Aún no tienes una cuenta?
               <Link
                 href="#"
                 sx={{
@@ -164,8 +164,8 @@ export const LoginPage = () => {
                   color: "black",
                 }}
               >
-                {" "}
-                <b>Registrarse</b>{" "}
+                
+                <b>Registrarse</b>
               </Link>
             </Typography>
           </Box>
