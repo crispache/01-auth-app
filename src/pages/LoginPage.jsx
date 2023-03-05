@@ -1,13 +1,21 @@
 import { useTheme } from "@emotion/react";
-import { Google } from "@mui/icons-material";
-import { Box, Button, Grid, Link, TextField, Typography } from "@mui/material";
+import { Google, Visibility, VisibilityOff } from "@mui/icons-material";
+import {
+  Box,
+  Button,
+  Grid,
+  IconButton,
+  InputAdornment,
+  Link,
+  TextField,
+  Typography,
+} from "@mui/material";
 import { useState } from "react";
 
-
-
 export const LoginPage = () => {
+  
   const [showPassword, setShowPassword] = useState(false);
-  const theme = useTheme()
+  const theme = useTheme();
 
   return (
     <>
@@ -60,10 +68,24 @@ export const LoginPage = () => {
 
               <Grid item xs={12} sx={{ mt: 3 }}>
                 <TextField
-                  type="password"
+                  type={showPassword ? 'text' : 'password'}
                   label="Contraseña"
                   name="password"
                   fullWidth
+                  InputProps={{
+                    endAdornment: (
+                      <InputAdornment position="end">
+                        {
+                          <IconButton
+                            onClick={() => setShowPassword((show) => !show)}
+                            edge="end"
+                          >
+                            {showPassword ? <VisibilityOff /> : <Visibility />}
+                          </IconButton>
+                        }
+                      </InputAdornment>
+                    ),
+                  }}
                 ></TextField>
               </Grid>
 
@@ -74,12 +96,18 @@ export const LoginPage = () => {
                 display="flex"
                 justifyContent="end"
               >
-                <Link href="#" sx={{
-                       fontFamily: "Open Sans",
-                       fontWeight: 600,
-                       color: "black",
-                       fontSize: '14px'
-                }}> ¿Te has olvidado de la contraseña? </Link>
+                <Link
+                  href="#"
+                  sx={{
+                    fontFamily: "Open Sans",
+                    fontWeight: 600,
+                    color: "black",
+                    fontSize: "14px",
+                  }}
+                >
+                  {" "}
+                  ¿Te has olvidado de la contraseña?{" "}
+                </Link>
               </Grid>
 
               <Grid item xs={12} sx={{ mt: 5 }}>
@@ -91,7 +119,7 @@ export const LoginPage = () => {
                     fontFamily: "Open Sans",
                     fontWeight: 500,
                     fontSize: "15px",
-                    ":hover":{ background: theme.palette.secondary.light },
+                    ":hover": { background: theme.palette.secondary.light },
                   }}
                   color="secondary"
                 >
@@ -120,17 +148,25 @@ export const LoginPage = () => {
           </form>
 
           <Box sx={{ mt: 5 }} display="flex" justifyContent="center">
-            <Typography sx={{
-                    fontFamily: "Open Sans",
-                    fontWeight: 500,
-                    color: "black"
-                }}>
-        
-              ¿Aún no tienes una cuenta? <Link href="#" sx={{
-                    fontFamily: "Open Sans",
-                    fontWeight: 600,
-                    color: "black"
-                }}> <b>Registrarse</b>  </Link>
+            <Typography
+              sx={{
+                fontFamily: "Open Sans",
+                fontWeight: 500,
+                color: "black",
+              }}
+            >
+              ¿Aún no tienes una cuenta?{" "}
+              <Link
+                href="#"
+                sx={{
+                  fontFamily: "Open Sans",
+                  fontWeight: 600,
+                  color: "black",
+                }}
+              >
+                {" "}
+                <b>Registrarse</b>{" "}
+              </Link>
             </Typography>
           </Box>
         </Box>
