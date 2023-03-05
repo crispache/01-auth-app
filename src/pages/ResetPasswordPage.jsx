@@ -1,5 +1,5 @@
 import { useTheme } from "@emotion/react";
-import { Key } from "@mui/icons-material";
+import { ArrowBack, Key } from "@mui/icons-material";
 import { Box, Button, Grid, TextField, Typography } from "@mui/material";
 
 export const ResetPasswordPage = () => {
@@ -90,6 +90,16 @@ export const ResetPasswordPage = () => {
                   color="secondary"
                 >
                   Restablecer contraseña
+                </Button>
+              </Grid>
+
+              <Grid item xs={12} sx={{ mt: 5, textAlign: "center" }}>
+                <Button
+                  variant="text"
+                  color="primary"
+                  startIcon={<ArrowBack />}
+                >
+                  Volver atrás
                 </Button>
               </Grid>
             </Grid>
