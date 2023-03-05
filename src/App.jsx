@@ -3,12 +3,13 @@
 import { AppTheme } from "./theme"
 import { LoginPage } from "./pages/LoginPage"
 import { RegisterPage  } from "./pages/RegisterPage"
+import { ResetPasswordPage } from './pages/ResetPasswordPage'
 
 export const App = () => {
   return (
     <AppTheme>
        {/*  <AppRouter/> */}
-       <RegisterPage/>
+       <ResetPasswordPage/>
     </AppTheme>
   )
 }
