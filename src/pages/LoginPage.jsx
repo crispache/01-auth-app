@@ -11,6 +11,7 @@ import {
   Typography,
 } from "@mui/material";
 import { useState } from "react";
+import { Link as RouterLink } from 'react-router-dom'
 
 export const LoginPage = () => {
   
@@ -97,7 +98,8 @@ export const LoginPage = () => {
                 justifyContent="end"
               >
                 <Link
-                  href="#"
+                  component={ RouterLink }
+                  to="/reset-password"
                   sx={{
                     fontFamily: "Open Sans",
                     fontWeight: 600,
@@ -157,7 +159,8 @@ export const LoginPage = () => {
             >
               ¿Aún no tienes una cuenta?
               <Link
-                href="#"
+                component={ RouterLink }
+                to="/register"
                 sx={{
                   fontFamily: "Open Sans",
                   fontWeight: 600,
@@ -165,7 +168,7 @@ export const LoginPage = () => {
                 }}
               >
                 
-                <b>Registrarse</b>
+                <b>Registrarse </b>
               </Link>
             </Typography>
           </Box>

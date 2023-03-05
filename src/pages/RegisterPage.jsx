@@ -18,7 +18,7 @@ import { useState } from "react";
 
 import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
 import es from 'date-fns/locale/es';
-
+import { Link as RouterLink } from 'react-router-dom'
 
 
 
@@ -199,7 +199,8 @@ export const RegisterPage = () => {
             >
               ¿Ya tienes una cuenta?
               <Link
-                href="#"
+                component={ RouterLink }
+                to="/login"
                 sx={{
                   fontFamily: "Open Sans",
                   fontWeight: 600,

@@ -1,6 +1,7 @@
 import { useTheme } from "@emotion/react";
 import { ArrowBack, Key } from "@mui/icons-material";
 import { Box, Button, Grid, TextField, Typography } from "@mui/material";
+import { Link as RouterLink } from 'react-router-dom'
 
 export const ResetPasswordPage = () => {
   const theme = useTheme();
@@ -95,6 +96,8 @@ export const ResetPasswordPage = () => {
 
               <Grid item xs={12} sx={{ mt: 5, textAlign: "center" }}>
                 <Button
+                  component={ RouterLink }
+                  to="/login"
                   variant="text"
                   color="primary"
                   startIcon={<ArrowBack />}
