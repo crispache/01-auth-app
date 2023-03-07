@@ -1,6 +1,5 @@
 import { Navigate, Route, Routes } from "react-router-dom"
-import { LoginPage, RegisterPage, ResetPasswordPage } from "../pages"
-
+import { LoginPage, RegisterPage, ResetPasswordPage, NotFoundPage  } from "../pages"
 
 
 export const AppRouter = () => {
@@ -11,6 +10,7 @@ export const AppRouter = () => {
             <Route path="login" element={ <LoginPage/>} />
             <Route path="register" element={ <RegisterPage/>} />
             <Route path="reset-password" element={ <ResetPasswordPage/>} />
+            <Route path="*" element={ <NotFoundPage/>} />
         </Routes>
     </>
   )
