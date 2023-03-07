@@ -29,6 +29,7 @@ export const RegisterPage = () => {
   return (
     <>
       <Grid
+        className="animate__animated animate__fadeIn"
         container
         component="main"
         spacing={0}

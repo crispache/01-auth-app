@@ -46,7 +46,7 @@ export const NotFoundPage = () => {
               padding: 2,
             }}
           >
-            <Grid xl={6} lg={6} md={6} sm={12} xs={12} sx={{ mt: 1 }}>
+            <Grid item xl={6} lg={6} md={6} sm={12} xs={12} sx={{ mt: 1 }} className="animate__animated animate__fadeIn">
               <Typography variant="h3" textAlign="left" sx={{ mt: 2 }}>
                 ¡Ups!
               </Typography>
@@ -78,7 +78,7 @@ export const NotFoundPage = () => {
               </Button>
             </Grid>
 
-            <Grid xl={6} lg={6} md={6} sm={12} xs={12} sx={{ mt: 1 }}>
+            <Grid item xl={6} lg={6} md={6} sm={12} xs={12} sx={{ mt: 1 }} className="animate__animated animate__zoomIn">
               <img
                 src="/src/assets/404-error.svg"
                 alt="Imagen de un astronauta con un 404"
