@@ -12,11 +12,21 @@ import {
 } from "@mui/material";
 import { useState } from "react";
 import { Link as RouterLink } from 'react-router-dom'
+import { useForm } from "../hooks/useForm";
 
 export const LoginPage = () => {
   
   const [showPassword, setShowPassword] = useState(false);
+  const { email, password, onChangeField } = useForm({
+    email: "",
+    password: "",
+  })
   const theme = useTheme();
+
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+  }
 
   return (
     <>
@@ -51,7 +61,7 @@ export const LoginPage = () => {
             Login
           </Typography>
 
-          <form>
+          <form onSubmit={handleSubmit}>
             <Grid
               container
               sx={{
@@ -65,6 +75,8 @@ export const LoginPage = () => {
                   label="Email"
                   name="email"
                   fullWidth
+                  value={email}
+                  onChange={onChangeField}
                 ></TextField>
               </Grid>
 
@@ -74,6 +86,8 @@ export const LoginPage = () => {
                   label="Contraseña"
                   name="password"
                   fullWidth
+                  value={password}
+                  onChange={onChangeField}
                   InputProps={{
                     endAdornment: (
                       <InputAdornment position="end">
@@ -125,6 +139,7 @@ export const LoginPage = () => {
                     ":hover": { background: theme.palette.secondary.light },
                   }}
                   color="secondary"
+                  onClick={handleSubmit}
                 >
                   
                   Iniciar sesión

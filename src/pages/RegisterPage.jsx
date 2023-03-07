@@ -19,12 +19,33 @@ import { useState } from "react";
 import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
 import es from 'date-fns/locale/es';
 import { Link as RouterLink } from 'react-router-dom'
+import { useForm } from "../hooks/useForm";
 
 
 
 export const RegisterPage = () => {
-  const [showPassword, setShowPassword] = useState(false);
+  
+  const [showPassword, setShowPassword] = useState(false); // TODO: CAMBIAR PARA LOS 2 EYES 
+  const { name, email, date_birth, password1, password2, terms, onChangeField } = useForm({
+    name: "",
+    email: "",
+    date_birth: "",
+    password1: "",
+    password2: "",
+    terms: false, // TODO: REVISAR
+  })
   const theme = useTheme();
+
+
+  const onChangeDate = (value) => {
+    const event = {
+      target: {
+        name: 'date_birth',
+        value: value
+      }
+    }
+    onChangeField(event)
+  }
 
   return (
     <>
@@ -73,6 +94,8 @@ export const RegisterPage = () => {
                   label="Nombre"
                   name="name"
                   fullWidth
+                  value={name}
+                  onChange={onChangeField}
                 ></TextField>
               </Grid>
 
@@ -82,13 +105,15 @@ export const RegisterPage = () => {
                   label="Email"
                   name="email"
                   fullWidth
+                  value={email}
+                  onChange={onChangeField}
                 ></TextField>
               </Grid>
 
               <Grid item xs={12} sx={{ mt: 3 }}>
                 <LocalizationProvider dateAdapter={AdapterDateFns} adapterLocale={es}>
                 <div className="custom-date-picker">
-                  <DatePicker label="Fecha de nacimiento" />
+                  <DatePicker label="Fecha de nacimiento" value={date_birth} onChange={onChangeDate} />
                   </div>
                 </LocalizationProvider>
               </Grid>
@@ -98,8 +123,10 @@ export const RegisterPage = () => {
                 <TextField
                   type={showPassword ? "text" : "password"}
                   label="Contraseña"
-                  name="password"
+                  name="password1"
                   fullWidth
+                  value={password1}
+                  onChange={onChangeField}
                   InputProps={{
                     endAdornment: (
                       <InputAdornment position="end">
@@ -121,8 +148,10 @@ export const RegisterPage = () => {
                 <TextField
                   type={showPassword ? "text" : "password"}
                   label="Repetir contraseña"
-                  name="password"
+                  name="password2"
                   fullWidth
+                  value={password2}
+                  onChange={onChangeField}
                   InputProps={{
                     endAdornment: (
                       <InputAdornment position="end">
@@ -145,7 +174,11 @@ export const RegisterPage = () => {
 
               <Grid item xs={12} sx={{ mt: 3 }}>
               <FormGroup>
-                <FormControlLabel control={<Checkbox defaultChecked color="info" />} label="Aceptar términos y condiciones" />
+                <FormControlLabel 
+                  control={<Checkbox defaultChecked color="info" value={terms} onChange={onChangeField} />} 
+                  label="Aceptar términos y condiciones" 
+          
+                  />
          
                 </FormGroup>
               </Grid>

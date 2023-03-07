@@ -2,9 +2,22 @@ import { useTheme } from "@emotion/react";
 import { ArrowBack, Key } from "@mui/icons-material";
 import { Box, Button, Grid, TextField, Typography } from "@mui/material";
 import { Link as RouterLink } from 'react-router-dom'
+import { useForm } from "../hooks/useForm";
+
+
 
 export const ResetPasswordPage = () => {
+
   const theme = useTheme();
+  const { email, onChangeField } = useForm({
+    email: "",
+  })
+
+
+  const handleSubmit = (event) => {
+      event.preventDefault();
+  }
+  
 
   return (
     <>
@@ -61,7 +74,7 @@ export const ResetPasswordPage = () => {
             correo electrónico para recuperar tu contraseña.
           </Typography>
 
-          <form>
+          <form onSubmit={handleSubmit}>
             <Grid
               container
               sx={{
@@ -75,6 +88,8 @@ export const ResetPasswordPage = () => {
                   label="Email"
                   name="email"
                   fullWidth
+                  value={email}
+                  onChange={ onChangeField }
                 ></TextField>
               </Grid>
 
@@ -90,6 +105,7 @@ export const ResetPasswordPage = () => {
                     ":hover": { background: theme.palette.secondary.light },
                   }}
                   color="secondary"
+                  onClick={handleSubmit}
                 >
                   Restablecer contraseña
                 </Button>
